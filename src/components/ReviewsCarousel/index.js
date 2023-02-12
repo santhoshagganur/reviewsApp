@@ -3,7 +3,7 @@ import {Component} from 'react'
 import './index.css'
 
 class ReviewsCarousel extends Component {
-  state = {indexOfReview: 1}
+  state = {indexOfReview: 0}
 
   getPreviousReview = () => {
     const {indexOfReview} = this.state
@@ -24,10 +24,10 @@ class ReviewsCarousel extends Component {
   }
 
   renderReviewDetails = activeReview => {
-    const {imageUrl, username, companyName, description} = activeReview
+    const {imgUrl, username, companyName, description} = activeReview
     return (
       <div className="user-details">
-        <img src={imageUrl} alt={username} />
+        <img src={imgUrl} alt={username} />
         <p className="name"> {username} </p>
         <p className="company-name"> {companyName} </p>
         <p className="description"> {description} </p>
@@ -45,19 +45,32 @@ class ReviewsCarousel extends Component {
         <h1 className="heading"> Reviews </h1>
 
         <div className="name-container">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/left-arrow-img.png"
-            className="left-arrow"
-            alt="left-arrow"
+          <button
             onClick={this.getPreviousReview}
-          />
+            type="button"
+            className="button"
+            data-testid="leftArrow"
+          >
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/left-arrow-img.png"
+              className="left-arrow"
+              alt="left arrow"
+            />
+          </button>
+
           {this.renderReviewDetails(activeReview)}
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/right-arrow-img.png"
-            className="right-arrow"
-            alt="right-arrow"
+          <button
             onClick={this.getLatestReview}
-          />
+            type="button"
+            className="button"
+            data-testid="rightArrow"
+          >
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/right-arrow-img.png"
+              className="right-arrow"
+              alt="right arrow"
+            />
+          </button>
         </div>
       </div>
     )
