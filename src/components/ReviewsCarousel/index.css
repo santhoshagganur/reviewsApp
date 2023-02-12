@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 15px;
 }
 
 .heading {
@@ -43,13 +44,11 @@
 .left-arrow {
   height: 30px;
   background-size: cover;
-  margin-right: 50px;
 }
 
 .right-arrow {
   height: 30px;
   background-size: cover;
-  margin-left: 50px;
 }
 
 .user-details {
